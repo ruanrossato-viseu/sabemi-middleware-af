@@ -15,6 +15,11 @@ from zenvia import sendToZenvia
 app = flask.Flask(__name__)
 
 
+@app.route('/message', methods=['GET'])
+def heartbeat():
+    print("tudum")
+    return({"tudum":"tudum"})
+
 @app.route('/message', methods=['POST'])
 def incomingMessage():
 
