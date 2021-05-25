@@ -11,20 +11,17 @@ import json
 
 
 def sendToZenvia(messages,fromNumber="", toNumber=""):
-
     url = "https://api.zenvia.com/v2/channels/whatsapp/messages"
     for message in messages:
 
-# =============================================================================
-#         delay = len(message["text"])*10
-#
-#
-#         if("[DELAY]" in message["text"]):
-#             delay = 2000
-#             message.text = message.text.replace("[DELAY]","")
-#
-#         time.sleep(delay/1000)
-# =============================================================================
+        delay = len(message["text"])/50
+
+
+        if("[DELAY]" in message["text"]):
+            delay = 2
+            message.text = message.text.replace("[DELAY]","")
+    
+        time.sleep(delay)
 
         if("[DOCUMENTO]" in message["text"]):
             payload = json.dumps({
